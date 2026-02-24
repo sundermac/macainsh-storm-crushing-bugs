@@ -4,7 +4,9 @@ console.log("JavaScript File is linked");
 const labels = document.querySelectorAll(".label");
 const targetZones = document.querySelectorAll(".target-zone");
 let currrentDraggedElement = null;
-// add variable for reset button;
+const resetBtn = document.querySelector("#reset-btn");
+const labelBox = document.querySelector("#label-box");
+
 
 // Functions
 function dragStart() {
@@ -37,6 +39,20 @@ function dropped(e) {
     currrentDraggedElement = null;
 }
 
+function resetPuzzle() {
+    console.log("Reset puzzle");
+    // Returns labels found in a target zone back to their original location the label box
+    // Runs a for each loop and looks for a label class in each zone
+    // If a label is found then it will return it to its original location the label box
+
+    targetZones.forEach(zone => {
+        const foundlabel = zone.querySelector(".label");
+
+    if(foundlabel) {
+        labelBox.appendChild(foundlabel);
+    }
+})}
+
 // Event Listeners
 labels.forEach(label => {
     label.addEventListener("dragstart", dragStart);
@@ -46,3 +62,5 @@ targetZones.forEach(zone => {
     zone.addEventListener("dragover", dragOver);
     zone.addEventListener("drop", dropped);
 })
+
+resetBtn.addEventListener("click", resetPuzzle);
