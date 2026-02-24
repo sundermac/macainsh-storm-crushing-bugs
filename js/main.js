@@ -22,6 +22,14 @@ function dropped(e) {
     e.preventDefault();
     console.log("dropped");
 
+    // Prevents a label from being dropped inside the target zone if it finds a label already inside it
+    // Checks to see if the element using .this already has an element that has a class with label.
+    // Yes = Exits the function with return
+    // No = Continues to run the rest of the code 
+    if(this.querySelector(".label")) {
+        return;
+    }
+
     //drop the piece
     this.appendChild(currrentDraggedElement);
 
