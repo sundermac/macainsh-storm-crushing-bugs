@@ -46,12 +46,13 @@ function resetPuzzle() {
     // If a label is found then it will return it to its original location the label box
 
     targetZones.forEach(zone => {
-        const foundlabel = zone.querySelector(".label");
+        const foundLabel = zone.querySelector(".label");
 
-    if(foundlabel) {
-        labelBox.appendChild(foundlabel);
+    if(foundLabel) {
+        labelBox.appendChild(foundLabel);
     }
 })}
+
 
 // Event Listeners
 labels.forEach(label => {
